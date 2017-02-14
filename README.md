@@ -5,3 +5,10 @@ export命令用于规定模块的对外接口，import命令用于输入其他�
 #####1,用export命令对外部输出变量
 ```javascript
 export var year=1999;
+```
+另一种写法
+```javascript
+var a=10;
+var b=20;
+var c=30;
+export {a,b,c}
