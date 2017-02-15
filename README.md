@@ -73,11 +73,36 @@ import命令接受一对大括号，里面指定要从其他模块导入的变�
 import {a as aa} from './home';
 ```
 ####3,import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，.js路径可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。
+```javascript
+import {myMethod} from 'util';//util是模块文件名，由于不带有路径，必须通过配置，告诉引擎怎么取到这个模块。
+```
+####4,注意，import命令具有提升效果，会提升到整个模块的头部，首先执行。
+```javascript
+foo();
+export {foo} from './home';
+```
+上面的代码不会报错，因为import的执行早于foo的调用。这种行为的本质是，import命令是编译阶段执行的，在代码运行之前。
+####5,由于import是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。
+```javascript
+// 报错
+import { 'f' + 'oo' } from 'my_module';
 
+// 报错
+let module = 'my_module';
+import { foo } from module;
 
+// 报错
+if (x === 1) {
+  import { foo } from 'module1';
+} else {
+  import { foo } from 'module2';
+}
+```
+它们用到了表达式、变量和if结构。在静态分析阶段，这些语法都是没法得到值的。
+####6,import语句会执行所加载的模块，因此可以有下面的写法。
+```javascript
 
-
-
+```
 
 
 
