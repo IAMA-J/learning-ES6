@@ -39,11 +39,12 @@ export a;
 ```javacript
 export 1;
 ```
-
-
-
-
-
+接口名与模块内部变量之间，建立了一一对应的关系。
+export语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。
+```javascript
+export var foo='bar';
+setTimeout(()=>foo='bat',500);//上面代码输出变量foo，值为bar，500毫秒之后变成baz。
+```
 
 
 
