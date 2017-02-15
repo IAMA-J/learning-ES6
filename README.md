@@ -12,3 +12,12 @@ var a=10;
 var b=20;
 var c=30;
 export {a,b,c}
+```
+export命令除了输出变量，还可以输出函数或类（class）。
+```javascript
+export function multiply (x,y){
+  return x*y;
+}
+```
+通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。
+
