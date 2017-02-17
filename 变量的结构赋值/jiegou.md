@@ -38,13 +38,40 @@ let { foo: foo, bar: bar } = { foo: "aaa", bar: "bbb" };
 说明，对象的解构赋值的内部机制，是先找到同名属性，然后再赋给对应的变量。真正被赋值的是后者，而不是前者。既前边是同属名，后边为变量。  
 故有此写法：
 ```javascript
+let {foo:baz}={foo:'aaa',bar:'111'};
+console.log(baz);//console.log(foo)==>>foo is not defined
+```
+上面代码中，foo是匹配的模式，baz才是变量。真正被赋值的是变量baz，而不是模式foo。
 
+和数组一样，解构也可以用于嵌套结构的对象。
+```javascript
+let obj={
+	p:['hello',{y:'world'}]
+}
+let {p:[x,{y}]}=obj;
+console.log(x,y)
+```
+对象的解构也可以指定默认值。
+```javascript
+var {x=3}={};
+console.log(x);//3
 
+var {y=3}={y:undefined}
+console.log(y);//3
 
+var {z=3}={z:null};
+console.log(z);//null
+```
+如果x属性等于null，就不严格相等于undefined，导致默认值不会生效。
+如果解构失败，变量的值等于undefined。
 
-
-
-
+由于数组本质是特殊的对象，因此可以对数组进行对象属性的解构。
+```javascript
+let arr=[1,2,3];
+let {0:first,[arr.length-1]:last}=arr;
+console.log(first,last);//1,3
+```
+上面代码对数组进行对象解构。数组arr的0键对应的值是1，[arr.length - 1]就是2键，对应的值是3。方括号这种写法，属于“属性名表达式”
 
 
 
