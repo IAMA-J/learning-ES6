@@ -11,54 +11,113 @@
 	<body>
 
 	<script type="module">
-	/*{
-	    let a=10;
-	    var b=20;
-  	}*/
- /* console.log(a);*///报错
-/*  console.log(b);//输出20
-  for(let i=1;i<10;i++){
-  	let i = 'abc';
-    console.log(i);
-  }
- */
-/*function f1() {
-  let n = 5;
-  if (true) {
-    let n = 10;
-  }
-  console.log(n); // 5
-};*/
+/*
+let [bar, foo] = [1];
+console.log(foo)
+let [x, y] = [1, 2, 3];
+console.log(y)*/
 
-/*if (true) {
-  function f() {
-  	console.log(111)
-  } // 不报错
-  f();
+/*let [x,y = 'a']=['c',undefined]
+console.log(x,y)
+let {foo,bar}={foo:'aaa',bar:'bbb'}
+console.log(foo,bar)*/
+
+/*let {foo:baz}={foo:'aaa',bar:'111'};
+console.log(baz,foo)*/
+
+/*let obj={
+	p:['hello',{y:'world'}]
 }
-f1();
-function f() { console.log('I am outside!'); }
-(function () {
-  f();
-}());*/
-/*function f() { console.log('I am outside!'); }
-(function () {
-  if (false) {
-    // 重复声明一次函数f
-    function f() { console.log('I am inside!'); }
-  }
+let {p:[x,{y}]}=obj;
+console.log(x,y)*/
 
-  f();
-}());*/
-const PI = 3.1415;
+/*var {x=3}={};
+console.log(x);
+var {y=3}={y:undefined}
+console.log(y);
+var {z=3}={z:null};
+console.log(z)*/
+
+/*let arr=[1,2,3];
+let {0:first,[arr.length-1]:last}=arr;
+console.log(first,last);*/
+
+/*const [a,b,c,d,e]='hello';
+console.log(a,b,c,d,e)*/
+
+/*let {length:len}='hello'
+console.log(len)*/
+
+/*let {toString: s}=123;
+console.log(s === Number.prototype.toString );
+let {toString: z}=true;
+console.log(z === Boolean.prototype.toString )*/
+
+/*let {aa:x}=undefined;
+console.log(x);
+let {bb:y}=null;
+console.log(y)*/
+
+/*function add([x,y]){
+	return x+y;
+};
+let num=add([1,2]);
+console.log(num);*/
+
+/*[[1,2],[3,4]].map(([a,b]) => console.log(a+b));*/
+
+/*function add({x=0,y=0}){
+	console.log(x+y);
+};
+add({x:3,y:1})*/
+
+/*let x=1;
+let y=2;
+[x,y]=[y,x];
+console.log([x,y])*/
+
+/*function example(){
+	return [1,2,3]
+}
+let [a,b,c]=example();
+console.log([a,b,c])*/
+
+/*function example(){
+	return {
+		foo:1,
+		bar:2
+	};
+}
+let {foo,bar}=example();
+console.log({foo,bar})*/
+
+/*function add([x,y,z]){
+	return x+y+z;
+};
+var num=add([1,2,3]);
+console.log(num)*/
+
+/*function add({x,y,z}) {
+	return x+y+z;
+}
+let num=add({z:3,y:2,x:0});
+console.log(num)*/
+
+let jsonData={
+	id:42,
+	status:'ok',
+	data:[1,2]
+};
+let {id,status,data:number}=jsonData;
+console.log(id,status,number)
 
 
-/*PI = 3;*/
-const foo = Object.freeze({});
 
-// 常规模式时，下面一行不起作用；
-// 严格模式时，该行会报错
-foo.prop = 123;
+
+
+
+
+
   </script>
 	</body>
 </html>
