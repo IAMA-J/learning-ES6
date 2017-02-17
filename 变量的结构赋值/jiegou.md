@@ -164,3 +164,20 @@ function add({x,y,z}) {
 let num=add({z:3,y:2,x:0});
 console.log(num)
 ```
+(4)提取json数据
+```javascript
+let jsonData={
+	id:42,
+	status:'ok',
+	data:[1,2]
+};
+let {id,status,data:number}=jsonData;
+console.log(id,status,number);//42,'ok',[1,2]
+```
+(5)函数参数的默认值
+(6)遍历Map结构
+(7)输入模块的指定方法
+
+
+
+
