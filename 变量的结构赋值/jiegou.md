@@ -73,25 +73,94 @@ console.log(first,last);//1,3
 ```
 上面代码对数组进行对象解构。数组arr的0键对应的值是1，[arr.length - 1]就是2键，对应的值是3。方括号这种写法，属于“属性名表达式”
 
+3.字符串的解构赋值
+===============================
+```javascript
+const [a,b,c,d,e]='hello';
+console.log(a,b,c,d,e);//h,e,l,l,o
+```
+类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。
+```javascript
+let {length:len}='hello'
+console.log(len);//5
+```
+4,数组和布尔值的解构
+==========================
+解构赋值时，如果等号右边是数值和布尔值，则会先转为对象。
+```javascript
+let {toString: s}=123;
+console.log(s === Number.prototype.toString );//true，一定要这样写，不能直接console.log(s)
 
+let {toString: z}=true;
+console.log(z === Boolean.prototype.toString );//true，一定要这样写，不能直接console.log(z);
+```
+数值和布尔值的包装对象都有toString属性，因此变量s都能取到值。
+解构赋值的规则是，只要等号右边的值不是对象，就先将其转为对象。
+```javascript
+let {aa:x}=undefined;
+console.log(x);
+let {bb:y}=null;
+console.log(y)
+```
+由于undefined和null无法转为对象，所以对它们进行解构赋值，都会报错。
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+5.函数参数的结构赋值	
+这是一个最常用的例子
+```javascript
+function add([x,y]){
+	return x+y;
+};
+let num=add([1,2]);
+console.log(num);//3
+```
+```javascript
+[[1,2],[3,4]].map(([a,b]) => console.log(a+b));
+```
+函数参数的解构也可以使用默认值。
+```javascript
+function add({x=0,y=0}){
+	console.log(x+y);
+};
+add({x:3,y:1});//4
+```
+6.用途
+(1)交换变量的值
+```javascript
+let x=1;
+let y=2;
+[x,y]=[y,x];
+console.log([x,y]);//2,1
+```
+(2)从函数返回多个值
+```javascript
+//返回一个数组
+function example(){
+	return [1,2,3]
+}
+let [a,b,c]=example();
+console.log([a,b,c]);//1,2,3
+//返回一个对象
+function example(){
+	return {
+		foo:1,
+		bar:2
+	};
+}
+let {foo,bar}=example();
+console.log({foo,bar});//{foo:1,bar:2}
+```
+(3)函数参数的定义
+```javascript
+//数组
+function add([x,y,z]){
+	return x+y+z;
+};
+var num=add([1,2,3]);
+console.log(num)
+//对象
+function add({x,y,z}) {
+	return x+y+z;
+}
+let num=add({z:3,y:2,x:0});
+console.log(num)
+```
