@@ -73,7 +73,8 @@ ES5对字符串对象提供charAt方法，返回字符串给定位置的字符�
 ```javascript
 'abc'.at(0) // "a"
 '𠮷'.at(0) // "𠮷"
-```但是这个方法不能直接用，必须通过<a href="https://github.com/es-shims/String.prototype.at">垫片库</a>去引用。
+```
+但是这个方法不能直接用，必须通过<a href="https://github.com/es-shims/String.prototype.at">垫片库</a>去引用。
 
 
 
