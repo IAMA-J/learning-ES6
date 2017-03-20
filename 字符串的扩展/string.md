@@ -39,7 +39,7 @@ s.codePointAt(0) // 134071
 s.codePointAt(1) // 57271
 s.codePointAt(2) // 97
 ```
-
+codePointAt方法是测试一个字符由两个字节还是由四个字节组成的最简单方法。
 
 
 
