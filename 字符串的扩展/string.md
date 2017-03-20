@@ -96,6 +96,7 @@ console.log(str.endsWith('stand',5));//true
 ```
 上面代码表示，使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
 8.repeat()
+==========================
 repeat方法返回一个新字符串，表示将原字符串重复n次。
 ```javascript
 console.log('hello'.repeat(2));//hellohello
@@ -109,7 +110,13 @@ console.log('hello'.repeat(2.9));//hellohello
 console.log('hello'.repeat(-0.5));//'',为空。
 ``` 
 参数如果是Infinity，会报错。  
-参数如果是NAN，会等同于0.
+参数如果是NaN，会等同于0.
+9.padStart()，padEnd()
+=================================
+在MDN中显示，这两个方法正在测试中：This is an experimental technology。
+ES2017 引入了字符串补全长度的功能。如果某个字符串不够指定长度，会在头部或尾部补全。padStart()用于头部补全，padEnd()用于尾部补全。
+10.模板字符串
+模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
 
 
 
