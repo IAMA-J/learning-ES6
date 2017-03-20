@@ -95,6 +95,27 @@ console.log(str.startsWith(',',7));//fasle
 console.log(str.endsWith('stand',5));//true
 ```
 上面代码表示，使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
+8.repeat()
+repeat方法返回一个新字符串，表示将原字符串重复n次。
+```javascript
+console.log('hello'.repeat(2));//hellohello
+```
+参数如果是正数小数，会被向下取整。
+```javascript
+console.log('hello'.repeat(2.9));//hellohello
+``` 
+参数如果是小于-1的负数，会报错，但是如果参数在0~-1之间的负小数，会向上取整为0.
+```javascript
+console.log('hello'.repeat(-0.5));//'',为空。
+``` 
+参数如果是Infinity，会报错。  
+参数如果是NAN，会等同于0.
+
+
+
+
+
+
 
 
 
