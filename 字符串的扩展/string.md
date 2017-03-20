@@ -68,6 +68,7 @@ for (let i of "hello") {
     }
 ```
 5.at()
+========================
 ES5对字符串对象提供charAt方法，返回字符串给定位置的字符。该方法不能识别码点大于0xFFFF的字符。
 目前，有一个提案，提出字符串实例的at方法，可以识别Unicode编号大于0xFFFF的字符，返回正确的字符。
 ```javascript
@@ -75,6 +76,34 @@ ES5对字符串对象提供charAt方法，返回字符串给定位置的字符�
 '𠮷'.at(0) // "𠮷"
 ```
 但是这个方法不能直接用，必须通过<a href="https://github.com/es-shims/String.prototype.at">垫片库</a>去引用。
+7.includes(), startsWith(), endsWith()
+============================================
+字符串查找新添加的三个方法：
+includes()：返回布尔值，表示是否找到了参数字符串。
+startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。
+endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。
+```javascript
+let str="stand up,please!"
+console.log(str.includes('lea'));//true,是否存在这个字符串
+console.log(str.startsWith('ta'));//false,是否以这个字符串开头
+console.log(str.endsWith('!'));//true,是否以这个字符串结尾
+```
+这三个方法都支持第二个参数，表示开始搜索的位置。
+```javascript
+console.log(str.includes('up',5));
+console.log(str.startsWith(',',7));
+console.log(str.endsWith('stand',5));
+```
+上面代码表示，使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束。
+
+
+
+
+
+
+
+
+
 
 
 
