@@ -40,19 +40,32 @@ s.codePointAt(1) // 57271
 s.codePointAt(2) // 97
 ```
 codePointAt方法是测试一个字符由两个字节还是由四个字节组成的最简单方法。
+3.string.fromCodePoint()
+===========================
+ES5提供String.fromCharCode方法，用于从码点返回对应字符，但是这个方法不能识别32位的UTF-16字符（Unicode编号大于0xFFFF）。
+```javascript
+console.log(String.fromCodePoint(0x20BB7));//𠮷
+```
+4.字符串的遍历器接口
+===================================
+ES6为字符串添加了遍历器接口（详见《Iterator》一章），使得字符串可以被for...of循环遍历。
+```javascript
+for (let i of "hello") {
+  		console.log(i);//h,e,l,l,o
+  	}
+ ```
+ 除了遍历字符串，这个遍历器最大的优点是可以识别大于0xFFFF的码点，传统的for循环无法识别这样的码点。
+```javascript
+  	var text = String.fromCodePoint(0x20BB7);
+    for (let i = 0; i < text.length; i++) {
+      console.log(text[i]);
+    }
+    // " "
+    // " "
 
-
-
-
-
-
-
-
-
-
-
-
-
+    for (let i of text) {
+      console.log(i);
+    }
 
 
 
