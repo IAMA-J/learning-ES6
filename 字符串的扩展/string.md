@@ -66,10 +66,14 @@ for (let i of "hello") {
     for (let i of text) {
       console.log(i);
     }
-
-
-
-
+```
+5.at()
+ES5对字符串对象提供charAt方法，返回字符串给定位置的字符。该方法不能识别码点大于0xFFFF的字符。
+目前，有一个提案，提出字符串实例的at方法，可以识别Unicode编号大于0xFFFF的字符，返回正确的字符。
+```javascript
+'abc'.at(0) // "a"
+'𠮷'.at(0) // "𠮷"
+```但是这个方法不能直接用，必须通过<a href="https://github.com/es-shims/String.prototype.at">垫片库</a>去引用。
 
 
 
