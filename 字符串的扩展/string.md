@@ -40,6 +40,7 @@ s.codePointAt(1) // 57271
 s.codePointAt(2) // 97
 ```
 codePointAt方法是测试一个字符由两个字节还是由四个字节组成的最简单方法。
+
 3.string.fromCodePoint()
 ===========================
 ES5提供String.fromCharCode方法，用于从码点返回对应字符，但是这个方法不能识别32位的UTF-16字符（Unicode编号大于0xFFFF）。
@@ -129,7 +130,7 @@ ES2017 引入了字符串补全长度的功能。如果某个字符串不够指�
 ```javascript
 console.log(`hello baby boy!`);//hello baby boy!
 ```
-多行字符：如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。
+多行字符：如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。如果你不想要这个换行，可以使用trim方法消除它(没试出来)。
 ```javascript
 console.log(`string line 1
 one two three	
@@ -138,8 +139,9 @@ one two three
 string line 1
 one two three	
 */
+
 ```
-嵌入变量：在模板中使用${变量名}。大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性。
+嵌入变量：在模板中使用${变量名}。大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性和调用函数。
 ```javascript
 //普通的变量
 let name='Roli'
@@ -150,10 +152,19 @@ console.log(`${a+b}`)
 //对象的引用的
 var obj={a:2,b:5};
 console.log(`a+b=${obj.a+obj.b}`);//a+b=7
+//函数的调用
+function add(){
+  return 10+5;
+}
+console.log(`结果是${add()}`);//结果是15
 ```
+如果模板字符串中的变量没有声明，将报错。
 
-
-
+由于模板字符串的大括号内部，就是执行JavaScript代码，因此如果大括号内部是一个字符串，将会原样输出。
+```jjavascript
+console.log(`hello,${'Roli'}`);//hello,Roli
+```
+模板字符串甚至还能嵌套。（没试出来）
 
 
 
