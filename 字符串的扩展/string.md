@@ -118,11 +118,11 @@ ES2017 引入了字符串补全长度的功能。如果某个字符串不够指�
 10.模板字符串
 ======================================
 模板字符串（template string）是增强版的字符串，用反引号（`）标识。它可以当作普通字符串使用，也可以用来定义多行字符串，或者在字符串中嵌入变量。
-普通字符:
+普通字符:如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。
 ```javascript
 console.log(`hello baby boy!`);//hello baby boy!
 ```
-多行字符：
+多行字符：如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。
 ```javascript
 console.log(`string line 1
 one two three	
@@ -132,10 +132,17 @@ string line 1
 one two three	
 */
 ```
-嵌入变量：在模板中使用${变量名}
+嵌入变量：在模板中使用${变量名}。大括号内部可以放入任意的JavaScript表达式，可以进行运算，以及引用对象属性。
 ```javascript
+//普通的变量
 let name='Roli'
 console.log(`hello,${name}`);hello,Roli
+//表达式
+let a=1,b=2;
+console.log(`${a+b}`)
+//对象的引用的
+var obj={a:2,b:5};
+console.log(`a+b=${obj.a+obj.b}`);//a+b=7
 ```
 
 
