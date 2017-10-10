@@ -12,6 +12,39 @@ let所声明的变量，只在let命令所在的代码块内有效。
   console.log(b);//输出20
   </script>
 ```
+for循环的计数器，就很合适使用let命令。
+```javascript
+var a1=[];
+for (var i=0;i<10;i++){
+	a1[i]=function(){
+		console.log(i)
+		
+	}
+	
+	
+}
+a1[6]();
+```
+i为全局变量，数组中i都是指向同一个i,i最后为10.
+```javascript
+var b1=[];
+for(let i=0;i<10;i++){
+	b1[i]=function(){
+		console.log(i)
+	}
+	
+}
+b1[6]();
+```
+i只在本轮循环有效，每一次循环的i都是一个新的变量。
+```javascript
+for (let i = 0; i < 3; i++) {
+  let i = 'abc';
+  console.log(i);
+}
+```
+循环变量的那部分是一个父作用域，而循环提内部是一个单独的子作用域。函数内部的变量i和循环变量i不在同一个作用域，有各自单独的作用域。
+
 ###不存在变量提升
 let命令改变了语法行为，它所声明的变量一定要在声明后使用，否则报错。
 ###不允许重复声明

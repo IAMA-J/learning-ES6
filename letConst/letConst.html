@@ -4,61 +4,14 @@
 		<meta charset="utf-8" />
 		<title>let conts</title>
     <!-- 直接在线上编译 -->
-		<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+	<!--	<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
     <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
-    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>-->
+    <script src="../lib/letConst.js"></script>
 	</head>
 	<body>
 
 	<script type="module">
-	/*{
-	    let a=10;
-	    var b=20;
-  	}*/
- /* console.log(a);*///报错
-/*  console.log(b);//输出20
-  for(let i=1;i<10;i++){
-  	let i = 'abc';
-    console.log(i);
-  }
- */
-/*function f1() {
-  let n = 5;
-  if (true) {
-    let n = 10;
-  }
-  console.log(n); // 5
-};*/
 
-/*if (true) {
-  function f() {
-  	console.log(111)
-  } // 不报错
-  f();
-}
-f1();
-function f() { console.log('I am outside!'); }
-(function () {
-  f();
-}());*/
-/*function f() { console.log('I am outside!'); }
-(function () {
-  if (false) {
-    // 重复声明一次函数f
-    function f() { console.log('I am inside!'); }
-  }
-
-  f();
-}());*/
-const PI = 3.1415;
-
-
-/*PI = 3;*/
-const foo = Object.freeze({});
-
-// 常规模式时，下面一行不起作用；
-// 严格模式时，该行会报错
-foo.prop = 123;
-  </script>
 	</body>
 </html>
